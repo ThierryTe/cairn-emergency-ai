@@ -1,0 +1,52 @@
+<resources>
+    <string-array name="guide_flood_steps">
+        <item>Trasládate a un lugar elevado o a un piso superior si puedes llegar sin peligro. Sigue las órdenes de evacuación.</item>
+        <item>Nunca cruces el agua de una inundación a pie, a nado ni en vehículo. Busca otra ruta.</item>
+        <item>Si quedas atrapado dentro, evita los áticos cerrados. Llama a emergencias o haz señales para pedir ayuda.</item>
+    </string-array>
+    <string-array name="guide_power_steps">
+        <item>Mantén cerrados el refrigerador y el congelador tanto como sea posible.</item>
+        <item>Coloca los generadores al aire libre, a un mínimo de 6,1 metros (20 pies) de puertas, ventanas y rejillas de ventilación. Nunca los uses dentro de la vivienda ni del garaje.</item>
+        <item>Si un equipo médico indispensable se está quedando sin energía, sigue tu plan de respaldo. Llama a emergencias si alguien corre peligro inmediato.</item>
+    </string-array>
+    <string-array name="guide_fire_steps">
+        <item>Si tienes una salida segura, sal de inmediato. Usa las escaleras y cierra las puertas al salir si puedes hacerlo sin peligro.</item>
+        <item>Si el humo o el fuego bloque la salida, cierra la puerta, llama a emergencias, indica dónde estás y haz señales desde una ventana si puedes.</item>
+        <item>Una vez fuera, llama a emergencias y no vuelvas a entrar. Avisa si alguien puede seguir dentro.</item>
+    </string-array>
+    <string-array name="guide_quake_steps">
+        <item>Si estás dentro, permanece allí durante el temblor. Agáchate, protege la cabeza y el cuello bajo un mueble resistente si está cerca y sujétate.</item>
+        <item>Si estás fuera, permanece al aire libre y aléjate de edificios y tendidos eléctricos si puedes hacerlo sin peligro.</item>
+        <item>Prepárate para posibles réplicas. Evita los edificios dañados y sigue las instrucciones locales.</item>
+    </string-array>
+    <string-array name="guide_flood_simple">
+        <item>Ve a un lugar más alto o sube a otro piso si es seguro. Sigue las órdenes de evacuación.</item>
+        <item>No entres en el agua de la inundación. Busca otra ruta.</item>
+        <item>Si quedas atrapado dentro, evita los áticos cerrados. Llama a emergencias o haz señales.</item>
+    </string-array>
+    <string-array name="guide_power_simple">
+        <item>Mantén cerrados el refrigerador y el congelador todo lo posible.</item>
+        <item>Usa el generador al aire libre. Aléjalo al menos 6,1 metros (20 pies) de puertas, ventanas y rejillas de ventilación. Nunca lo uses en casa ni en el garaje.</item>
+        <item>Sigue tu plan de respaldo si un equipo médico esencial pierde energía. Llama a emergencias si alguien corre peligro inmediato.</item>
+    </string-array>
+    <string-array name="guide_fire_simple">
+        <item>Si la salida es segura, sal ya. Usa las escaleras. Cierra las puertas al pasar si es seguro.</item>
+        <item>Si el humo o el fuego bloque la salida, cierra la puerta. Llama a emergencias y di dónde estás. Haz señales desde una ventana si puedes.</item>
+        <item>Cuando salgas, llama a emergencias. Quédate fuera. Avisa si alguien podría seguir dentro.</item>
+    </string-array>
+    <string-array name="guide_quake_simple">
+        <item>Si estás dentro, quédate allí mientras tiembla. Agáchate. Cúbrete la cabeza y el cuello bajo un mueble firme si está cerca y sujétate.</item>
+        <item>Si estás fuera, quédate allí. Aléjate de edificios y cables eléctricos si es seguro.</item>
+        <item>Puede haber más temblores. Evita los edificios dañados. Sigue las indicaciones locales.</item>
+    </string-array>
+    <string-array name="guide_insulin_steps">
+        <item>Consulta las instrucciones de conservación de tu producto. Mantenlo lo más fresco posible sin congelarlo.</item>
+        <item>Protege la insulina del sol directo y del calor. Si usas hielo, evita que se congele.</item>
+        <item>Si pudo estar expuesta a temperaturas extremas, consulta a un farmacéutico o a tu equipo de salud para conseguir un reemplazo. No uses insulina que se haya congelado.</item>
+    </string-array>
+    <string-array name="guide_insulin_simple">
+        <item>Lee las instrucciones de conservación de tu insulina. Mantenla fresca. No la congeles.</item>
+        <item>Protégela del calor y del sol directo. Si usas hielo, asegúrate de que la insulina no se congele.</item>
+        <item>¿Estuvo expuesta a mucho calor o frío? Pide ayuda a un farmacéutico o a tu equipo de salud para reemplazarla. No uses insulina que se haya congelado.</item>
+    </string-array>
+</resources>

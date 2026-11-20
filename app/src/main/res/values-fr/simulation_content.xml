@@ -1,0 +1,74 @@
+<resources>
+    <string-array name="sim_flood_choices">
+        <item>Monter à l’étage.</item>
+        <item>Descendre à la cave.</item>
+        <item>Attendre près du cours d’eau pour vérifier son niveau.</item>
+        <item>Traverser lentement en voiture.</item>
+        <item>Éviter l’eau et chercher un autre itinéraire sûr.</item>
+        <item>Traverser à pied en s’appuyant sur quelqu’un.</item>
+        <item>Attendre que l’eau arrive devant la porte.</item>
+        <item>Prendre un raccourci familier en zone basse.</item>
+        <item>Suivre maintenant l’itinéraire d’évacuation officiel.</item>
+        <item>Appeler les secours ou faire signe. Éviter les combles fermés.</item>
+        <item>Se cacher dans les combles fermés et éteindre le téléphone.</item>
+        <item>Partir à la nage dans la rue.</item>
+        <item>Rentrer dès que la route paraît sèche.</item>
+        <item>Suivre un voisin qui est déjà reparti.</item>
+        <item>Attendre l’autorisation des autorités.</item>
+        <item>L’eau du robinet si elle est claire.</item>
+        <item>L’eau potable en bouteille, en suivant les consignes officielles.</item>
+        <item>Faire fondre des glaçons préparés avec l’eau du robinet.</item>
+    </string-array>
+    <string-array name="sim_flood_lessons">
+        <item>Monter vous éloigne de l’eau qui monte. Les zones basses et les berges peuvent être submergées rapidement.</item>
+        <item>L’eau peut cacher une chaussée emportée et un courant fort. Elle peut vous entraîner à pied comme en voiture.</item>
+        <item>La route annoncée évite les dangers connus. Attendre ou emprunter un raccourci non vérifié peut vous exposer à la montée des eaux.</item>
+        <item>Des combles fermés peuvent vous piéger. Appeler ou faire signe aide les secours à vous repérer sans entrer dans l’eau.</item>
+        <item>La décrue peut masquer des routes endommagées et des dangers électriques. Attendez les consignes officielles de retour.</item>
+        <item>Une eau claire peut rester impropre à la consommation. Utilisez de l’eau potable sûre et suivez les consignes sur l’eau du robinet.</item>
+    </string-array>
+    <string-array name="sim_flood_situations">
+        <item>La pluie est forte et l’eau monte dehors. L’escalier vers l’étage est dégagé. Que faites-vous d’abord ?</item>
+        <item>L’eau recouvre la route qui monte. La chaussée n’est plus visible. Quel itinéraire prenez-vous ?</item>
+        <item>Les autorités ordonnent l’évacuation et annoncent un itinéraire hors d’eau. Que faites-vous ?</item>
+        <item>Dans un autre quartier, un foyer indique que l’eau a coupé toutes les sorties sûres au niveau du sol. Il est à l’étage. Quel conseil donner ?</item>
+        <item>L’eau baisse. Les autorités n’ont pas encore autorisé le retour dans votre quartier. Que faites-vous ?</item>
+        <item>Les autorités signalent que l’eau du robinet a pu être contaminée. Vous avez de l’eau potable en bouteille fermée. Qu’utilisez-vous ?</item>
+    </string-array>
+    <string-array name="sim_power_choices">
+        <item>Une bougie sans surveillance.</item>
+        <item>Une lampe de poche à piles.</item>
+        <item>Une lampe à gaz de camping à l’intérieur.</item>
+        <item>Les ouvrir souvent pour vérifier ce qui reste froid.</item>
+        <item>Les laisser entrouvertes pour ventiler.</item>
+        <item>Les garder fermées autant que possible.</item>
+        <item>Dehors, à au moins 6,1 mètres des portes, fenêtres et aérations.</item>
+        <item>Dans un garage dont la porte est ouverte.</item>
+        <item>Sur le seuil, juste sous une fenêtre ouverte.</item>
+        <item>Le pousser avec un balai.</item>
+        <item>Rester à bonne distance et le signaler.</item>
+        <item>L’enjamber là où le sol paraît sec.</item>
+        <item>Appeler les secours et suivre le plan de secours prévu.</item>
+        <item>Attendre un avis du fournisseur d’électricité.</item>
+        <item>Tenter une réparation électrique improvisée.</item>
+        <item>Garder les aliments dont l’odeur paraît normale.</item>
+        <item>Goûter un peu pour vérifier.</item>
+        <item>Jeter les aliments périssables du réfrigérateur.</item>
+    </string-array>
+    <string-array name="sim_power_lessons">
+        <item>Une lampe à piles vous éclaire sans flamme ni fumées de combustion.</item>
+        <item>Les portes fermées retiennent le froid plus longtemps. Les ouvrir souvent accélère le réchauffement.</item>
+        <item>Les gaz d’échappement contiennent du monoxyde de carbone. Même un garage ouvert ou une fenêtre proche peut laisser les gaz s’accumuler dedans.</item>
+        <item>Un câble tombé peut rester sous tension. Éloignez-vous et signalez-le depuis un endroit sûr.</item>
+        <item>Appeler les secours et suivre le plan prévu répond au danger immédiat. Attendre retarde l’aide.</item>
+        <item>Après quatre heures sans courant, un réfrigérateur sans autre source de froid peut ne plus conserver les aliments périssables en sécurité. L’odeur et le goût ne suffisent pas à exclure une contamination.</item>
+    </string-array>
+    <string-array name="sim_power_situations">
+        <item>Les lumières s’éteignent à la tombée de la nuit. Vous devez traverser la pièce. Qu’utilisez-vous ?</item>
+        <item>La coupure dure depuis une heure. Que faites-vous des portes du réfrigérateur et du congélateur ?</item>
+        <item>Un voisin propose de démarrer un groupe électrogène portable. Où peut-il l’utiliser en sécurité ?</item>
+        <item>Vous voyez un câble électrique tombé sur le trottoir. Que faites-vous ?</item>
+        <item>Un appareil médical indispensable n’est plus alimenté et la personne qui en dépend est en danger immédiat. Que faites-vous ?</item>
+        <item>Le réfrigérateur est sans courant depuis cinq heures. Vous n’avez ni relevé de température ni autre moyen de refroidissement. Que faire des aliments périssables ?</item>
+    </string-array>
+</resources>

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     id("com.google.gms.google-services")
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -36,6 +37,9 @@ android {
         compose = true
         buildConfig = true
     }
+    sourceSets.named("androidTest") {
+        assets.srcDir(rootProject.layout.projectDirectory.dir("eval"))
+    }
 }
 
 dependencies {
@@ -43,6 +47,10 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.ai)
     implementation(libs.firebase.ai.ondevice)
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.datastore.preferences)
+    ksp(libs.room.compiler)
     debugImplementation(libs.firebase.appcheck.debug)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)

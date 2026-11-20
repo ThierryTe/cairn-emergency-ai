@@ -1,0 +1,52 @@
+<resources>
+    <string-array name="guide_flood_steps">
+        <item>Move to higher ground or to a higher floor if you can reach it safely. Follow evacuation orders.</item>
+        <item>Never walk, swim, or drive through floodwater. Find another route.</item>
+        <item>If trapped indoors, avoid confined attics. Call emergency services or signal for help.</item>
+    </string-array>
+    <string-array name="guide_power_steps">
+        <item>Keep the refrigerator and freezer closed as much as possible.</item>
+        <item>Keep generators outdoors and at least 20 feet (6.1 meters) from doors, windows, and vents. Never run one in a home or garage.</item>
+        <item>If essential medical equipment is losing power, follow your backup plan. Call emergency services if someone is in immediate danger.</item>
+    </string-array>
+    <string-array name="guide_fire_steps">
+        <item>If you have a safe exit, leave immediately. Use the stairs and close doors behind you if you can do so safely.</item>
+        <item>If smoke or fire blocks your escape, close the door, call emergency services, say where you are, and signal from a window if possible.</item>
+        <item>Once outside, call emergency services and stay outside. Tell responders if anyone may still be inside.</item>
+    </string-array>
+    <string-array name="guide_quake_steps">
+        <item>If indoors, stay inside during the shaking. Get low, cover your head and neck under sturdy furniture if nearby, and hold on.</item>
+        <item>If outdoors, stay outside and move away from buildings and power lines if you can do so safely.</item>
+        <item>Expect aftershocks. Avoid damaged buildings and follow local instructions.</item>
+    </string-array>
+    <string-array name="guide_flood_simple">
+        <item>Go to higher ground or a higher floor if it is safe. Follow evacuation orders.</item>
+        <item>Stay out of floodwater. Find another route.</item>
+        <item>If you are trapped inside, avoid closed attics. Call or signal for help.</item>
+    </string-array>
+    <string-array name="guide_power_simple">
+        <item>Keep the fridge and freezer closed as much as possible.</item>
+        <item>Run generators outdoors. Keep them at least 20 feet (6.1 meters) from doors, windows, and vents. Never run one inside a home or garage.</item>
+        <item>Use your backup plan if essential medical equipment is losing power. Call emergency services if someone is in immediate danger.</item>
+    </string-array>
+    <string-array name="guide_fire_simple">
+        <item>If the exit is safe, leave now. Use the stairs. Close doors behind you if it is safe.</item>
+        <item>If fire or smoke blocks the exit, close the door. Call emergency services and say where you are. Signal from a window if you can.</item>
+        <item>Once outside, call emergency services. Stay outside. Tell responders if anyone may still be inside.</item>
+    </string-array>
+    <string-array name="guide_quake_simple">
+        <item>If you are inside, stay there while the ground shakes. Get down. Cover your head and neck under sturdy furniture if nearby, and hold on.</item>
+        <item>If you are outside, stay there. Move away from buildings and power lines if safe.</item>
+        <item>There may be more shaking. Stay away from damaged buildings. Follow local instructions.</item>
+    </string-array>
+    <string-array name="guide_insulin_steps">
+        <item>Check the storage instructions for your exact product. Keep it as cool as possible without freezing it.</item>
+        <item>Keep insulin out of direct sunlight and away from heat. If you use ice, take care that the insulin does not freeze.</item>
+        <item>If it may have been exposed to extreme temperatures, ask a pharmacist or your care team for advice and help getting a replacement. Do not use insulin that has frozen.</item>
+    </string-array>
+    <string-array name="guide_insulin_simple">
+        <item>Read the storage instructions on your insulin. Keep it cool. Do not freeze it.</item>
+        <item>Keep it away from heat and direct sun. If you use ice, make sure the insulin does not freeze.</item>
+        <item>Was it too hot or too cold? Ask a pharmacist or your care team for help replacing it. Do not use insulin that has frozen.</item>
+    </string-array>
+</resources>

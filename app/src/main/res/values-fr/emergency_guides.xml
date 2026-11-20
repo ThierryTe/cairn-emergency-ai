@@ -1,0 +1,52 @@
+<resources>
+    <string-array name="guide_flood_steps">
+        <item>Gagnez un point haut ou un étage supérieur si vous pouvez le rejoindre sans danger. Suivez les consignes d’évacuation.</item>
+        <item>Ne traversez jamais une zone inondée à pied, à la nage ou en voiture. Cherchez un autre itinéraire.</item>
+        <item>Si vous êtes bloqué à l’intérieur, évitez les combles fermés. Appelez les secours ou signalez votre présence.</item>
+    </string-array>
+    <string-array name="guide_power_steps">
+        <item>Ouvrez le moins possible le réfrigérateur et le congélateur.</item>
+        <item>Placez les groupes électrogènes dehors, à au moins 6,1 mètres des portes, fenêtres et aérations. Ne les utilisez jamais dans le logement ni dans le garage.</item>
+        <item>Si un appareil médical indispensable risque de s’arrêter, appliquez votre plan de secours. Appelez les secours en cas de danger immédiat.</item>
+    </string-array>
+    <string-array name="guide_fire_steps">
+        <item>Si vous disposez d’une sortie sûre, évacuez immédiatement. Prenez les escaliers et fermez les portes derrière vous si vous pouvez le faire sans danger.</item>
+        <item>Si la fumée ou le feu bloque la sortie, fermez la porte, appelez les secours, indiquez où vous êtes et signalez-vous depuis une fenêtre si possible.</item>
+        <item>Une fois dehors, appelez les secours et restez dehors. Signalez toute personne qui pourrait être encore à l’intérieur.</item>
+    </string-array>
+    <string-array name="guide_quake_steps">
+        <item>À l’intérieur, restez-y pendant les secousses. Baissez-vous, protégez votre tête et votre cou sous un meuble solide s’il est à portée et tenez-vous-y.</item>
+        <item>À l’extérieur, restez dehors et éloignez-vous des bâtiments et des lignes électriques si vous pouvez le faire sans danger.</item>
+        <item>Attendez-vous à des répliques. Évitez les bâtiments endommagés et suivez les consignes locales.</item>
+    </string-array>
+    <string-array name="guide_flood_simple">
+        <item>Montez sur un terrain plus haut ou à l’étage si vous pouvez le faire sans danger. Suivez les ordres d’évacuation.</item>
+        <item>Ne traversez pas les eaux de crue. Prenez un autre chemin.</item>
+        <item>Si vous êtes bloqué à l’intérieur, évitez les combles fermés. Appelez les secours ou faites signe.</item>
+    </string-array>
+    <string-array name="guide_power_simple">
+        <item>Gardez le réfrigérateur et le congélateur fermés autant que possible.</item>
+        <item>Utilisez le groupe électrogène dehors. Laissez au moins 6,1 mètres entre lui et les portes, fenêtres et aérations. Ne l’utilisez jamais chez vous ni dans un garage.</item>
+        <item>Suivez votre plan de secours si un appareil médical indispensable perd son alimentation. Appelez les secours si quelqu’un est en danger immédiat.</item>
+    </string-array>
+    <string-array name="guide_fire_simple">
+        <item>Si la sortie est sûre, partez tout de suite. Prenez les escaliers. Fermez les portes derrière vous si c’est sans danger.</item>
+        <item>Si le feu ou la fumée bloque la sortie, fermez la porte. Appelez les secours et dites où vous êtes. Faites un signe par la fenêtre si possible.</item>
+        <item>Une fois dehors, appelez les secours. Restez dehors. Dites aux secours si quelqu’un est peut-être encore à l’intérieur.</item>
+    </string-array>
+    <string-array name="guide_quake_simple">
+        <item>Si vous êtes à l’intérieur, restez-y pendant les secousses. Baissez-vous. Protégez votre tête et votre cou sous un meuble solide s’il est proche, et tenez-vous à ce meuble.</item>
+        <item>Si vous êtes dehors, restez-y. Éloignez-vous des bâtiments et des lignes électriques si c’est sans danger.</item>
+        <item>D’autres secousses sont possibles. Évitez les bâtiments endommagés. Suivez les consignes locales.</item>
+    </string-array>
+    <string-array name="guide_insulin_steps">
+        <item>Vérifiez les consignes de conservation de votre produit. Gardez-le aussi frais que possible sans le congeler.</item>
+        <item>Protégez l’insuline du soleil direct et de la chaleur. Si vous utilisez de la glace, veillez à ne pas congeler l’insuline.</item>
+        <item>Si elle a pu être exposée à des températures extrêmes, demandez conseil à votre pharmacien ou à votre équipe soignante pour la remplacer. N’utilisez pas d’insuline qui a gelé.</item>
+    </string-array>
+    <string-array name="guide_insulin_simple">
+        <item>Lisez les consignes de conservation de votre insuline. Gardez-la au frais. Ne la congelez pas.</item>
+        <item>Protégez-la de la chaleur et du soleil direct. Si vous utilisez de la glace, veillez à ne pas la congeler.</item>
+        <item>A-t-elle eu trop chaud ou trop froid ? Demandez à votre pharmacien ou à votre équipe soignante de vous aider à la remplacer. N’utilisez pas d’insuline qui a gelé.</item>
+    </string-array>
+</resources>

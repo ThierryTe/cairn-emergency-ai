@@ -1,182 +1,136 @@
 package com.cairn.emergency
 
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import androidx.lifecycle.lifecycleScope
-import androidx.compose.foundation.background
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.imePadding
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.saveable.rememberSaveableStateHolder
+import androidx.lifecycle.ViewModelProvider
+import android.view.HapticFeedbackConstants
+import com.cairn.emergency.ai.installFirebaseAppCheck
+import com.cairn.emergency.feature.assistant.AssistantScreen
+import com.cairn.emergency.feature.assistant.AssistantViewModel
+import com.cairn.emergency.feature.household.HouseholdScreen
+import com.cairn.emergency.feature.household.HouseholdViewModel
+import com.cairn.emergency.feature.kit.KitScreen
+import com.cairn.emergency.feature.kit.KitViewModel
+import com.cairn.emergency.feature.simulator.SimulatorScreen
+import com.cairn.emergency.feature.simulator.SimulatorViewModel
+import com.cairn.emergency.ui.home.CairnDestination
+import com.cairn.emergency.ui.home.CairnHome
+import com.cairn.emergency.ui.settings.AccessibilityOption
+import com.cairn.emergency.ui.settings.AccessibilityScreen
+import com.cairn.emergency.ui.settings.AccessibilityViewModel
+import com.cairn.emergency.ui.settings.CairnLocales
+import com.cairn.emergency.ui.sos.EmergencySosScreen
 import com.cairn.emergency.ui.theme.CairnTheme
-import com.cairn.emergency.ai.AiRouter
-import com.cairn.emergency.ai.Engine
 import com.google.firebase.FirebaseApp
-import com.google.firebase.appcheck.FirebaseAppCheck
-import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
-import kotlinx.coroutines.launch
-
-private val Navy = Color(0xFF10264C)
-private val Blue = Color(0xFF1769AA)
-private val PaleBlue = Color(0xFFE9F2FF)
-private data class HomeTile(val label: String, val color: Color)
-private val homeTiles = listOf(
-    HomeTile("👨‍👩‍👧  My Household", Color(0xFFE7F5EE)),
-    HomeTile("✚  72-Hour Kit", Color(0xFFFFF0E8)),
-    HomeTile("✦  Cairn Assistant", Color(0xFFF1EAFF)),
-    HomeTile("ϟ  Crisis Simulator", Color(0xFFE8F2FF)),
-)
 
 class MainActivity : ComponentActivity() {
-    private var aiMessage by mutableStateOf<String?>(null)
-    private var aiBusy by mutableStateOf(false)
-    private var screen by mutableStateOf("Home")
-    private var householdText by mutableStateOf("")
-    private var savedHousehold by mutableStateOf("")
+    private val navigation = mutableStateOf(listOf(CairnDestination.Home))
+    private val household by lazy { ViewModelProvider(this)[HouseholdViewModel::class.java] }
+    private val accessibility by lazy { ViewModelProvider(this)[AccessibilityViewModel::class.java] }
+    private val assistant by lazy { ViewModelProvider(this)[AssistantViewModel::class.java] }
+    private val simulator by lazy { ViewModelProvider(this)[SimulatorViewModel::class.java] }
+    private val kit by lazy { ViewModelProvider(this)[KitViewModel::class.java] }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CairnLocales.wrap(newBase))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        runCatching {
-            FirebaseApp.initializeApp(this)
-            if (BuildConfig.DEBUG) {
-                FirebaseAppCheck.getInstance().installAppCheckProviderFactory(
-                    DebugAppCheckProviderFactory.getInstance(),
+        val restored = savedInstanceState?.getStringArrayList("navigation")?.mapNotNull(::destinationNamed)
+        val previous = savedInstanceState?.getString("screen")?.let(::destinationNamed)
+        navigation.value = restored?.takeIf { it.firstOrNull() == CairnDestination.Home }
+            ?: when {
+                previous == CairnDestination.Household && savedInstanceState.getBoolean("householdOpenedFromKit") ->
+                    listOf(CairnDestination.Home, CairnDestination.Kit, previous)
+                previous == null || previous == CairnDestination.Home -> listOf(CairnDestination.Home)
+                else -> listOf(CairnDestination.Home, previous)
+            }
+        CairnLocales.migrateLegacySelection(this)
+        val language = CairnLocales.current(this)
+        FirebaseApp.initializeApp(this)?.let(::installFirebaseAppCheck)
+        setContent {
+            val stack = navigation.value
+            val destination = stack.last()
+            val screenState = rememberSaveableStateHolder()
+            SideEffect {
+                val clear = Color.TRANSPARENT
+                enableEdgeToEdge(
+                    statusBarStyle = SystemBarStyle.dark(clear),
+                    navigationBarStyle = SystemBarStyle.light(clear, Color.BLACK),
                 )
             }
-        }
-        householdText = getPreferences(MODE_PRIVATE).getString("household", "") ?: ""
-        savedHousehold = householdText
-        setContent {
-            CairnTheme {
-                if (screen == "Household") {
-                    HouseholdScreen(
-                        initialText = householdText,
-                        savedText = savedHousehold,
-                        onBack = { screen = "Home" },
-                        onSave = { text ->
-                            householdText = text
-                            savedHousehold = text
-                            getPreferences(MODE_PRIVATE).edit().putString("household", text).apply()
-                        },
-                    )
-                } else {
-                    CairnHome(aiMessage, aiBusy, { requestHybridCall() }, { screen = "Household" })
-                }
-            }
-        }
-    }
-
-    private fun requestHybridCall() {
-        lifecycleScope.launch {
-            aiBusy = true
-            aiMessage = null
-            try {
-                val answer = AiRouter.create().generate("Give one concise, safe household preparedness tip.")
-                aiMessage = "${if (answer.engine == Engine.LOCAL) "Local · Gemini Nano" else "Cloud · Gemini"}\n${answer.text}"
-            } catch (error: Exception) {
-                aiMessage = "AI unavailable. Check Firebase setup, App Check, network, and device model."
-            } finally {
-                aiBusy = false
-            }
-        }
-    }
-}
-
-@Composable
-private fun CairnHome(aiMessage: String?, aiBusy: Boolean, onTryAi: () -> Unit, onHousehold: () -> Unit) {
-    Scaffold(containerColor = Color(0xFFF7F9FD)) { padding ->
-        Column(Modifier.fillMaxSize().padding(padding).padding(horizontal = 20.dp, vertical = 18.dp)) {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                Text("◈  Cairn", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold, color = Navy)
-                Text("⚙", style = MaterialTheme.typography.headlineSmall, color = Navy)
-            }
-            Spacer(Modifier.height(20.dp))
-            Text("Be prepared.\nStay safe.", style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Bold, color = Navy)
-            Text("Plan, practice, and get help — online or offline.", modifier = Modifier.padding(top = 8.dp), color = Navy)
-            Spacer(Modifier.height(20.dp))
-            LazyVerticalGrid(columns = GridCells.Fixed(2), contentPadding = PaddingValues(bottom = 8.dp), horizontalArrangement = Arrangement.spacedBy(12.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                items(homeTiles) { tile ->
-                    Card(colors = CardDefaults.cardColors(containerColor = tile.color), shape = RoundedCornerShape(20.dp), onClick = { if (tile.label.contains("Household")) onHousehold() }) {
-                        Text(tile.label, Modifier.padding(18.dp), color = Navy, fontWeight = FontWeight.SemiBold)
+            BackHandler(enabled = stack.size > 1, onBack = ::navigateBack)
+            val readAloud = accessibility.enabled(AccessibilityOption.ReadAloud)
+            val simplified = accessibility.enabled(AccessibilityOption.Simplified)
+            CairnTheme(
+                darkTheme = false,
+                dynamicColor = false,
+                largeText = accessibility.enabled(AccessibilityOption.LargeText),
+                highContrast = accessibility.enabled(AccessibilityOption.HighContrast),
+            ) {
+                screenState.SaveableStateProvider(destination.name) {
+                    when (destination) {
+                        CairnDestination.Home -> CairnHome(
+                            onHousehold = { navigateTo(CairnDestination.Household) },
+                            onKit = { navigateTo(CairnDestination.Kit) },
+                            onAssistant = { navigateTo(CairnDestination.Assistant) },
+                            onSimulator = { navigateTo(CairnDestination.Simulator) },
+                            onSos = { navigateTo(CairnDestination.Sos) },
+                            onTalkSos = { navigateTo(CairnDestination.VoiceSos) },
+                            onSettings = { navigateTo(CairnDestination.Settings) },
+                            kitProgress = kit.plan?.readyPercent,
+                            kitCountsIncomplete = kit.plan?.householdCountsIncomplete == true,
+                        )
+                        CairnDestination.Household -> HouseholdScreen(
+                            household, lifecycle, language, { navigateTo(CairnDestination.Kit) }, ::navigateBack,
+                        )
+                        CairnDestination.Kit -> KitScreen(
+                            kit, { navigateTo(CairnDestination.Household) }, ::navigateBack,
+                            onCheckFeedback = {
+                                if (accessibility.enabled(AccessibilityOption.Vibration)) {
+                                    window.decorView.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+                                }
+                            },
+                        )
+                        CairnDestination.Assistant -> AssistantScreen(
+                            assistant, lifecycle, language, readAloud, simplified, { navigateTo(CairnDestination.Sos) }, ::navigateBack,
+                        )
+                        CairnDestination.Simulator -> SimulatorScreen(simulator, lifecycle, language, readAloud, ::navigateBack)
+                        CairnDestination.Sos, CairnDestination.VoiceSos -> EmergencySosScreen(
+                            household.state.saved, language, lifecycle, readAloud, simplified, ::navigateBack,
+                            startWithVoice = destination == CairnDestination.VoiceSos,
+                        )
+                        CairnDestination.Settings -> AccessibilityScreen(language, accessibility, { CairnLocales.select(this, it) }, ::navigateBack)
                     }
                 }
             }
-            Spacer(Modifier.height(12.dp))
-            Text("Ready when the network isn't", color = Blue, fontWeight = FontWeight.SemiBold)
-            Spacer(Modifier.height(12.dp))
-            Button(onClick = onTryAi, enabled = !aiBusy, modifier = Modifier.fillMaxWidth()) {
-                Text(if (aiBusy) "Checking hybrid AI…" else "Try hybrid AI")
-            }
-            aiMessage?.let { Text(it, Modifier.padding(top = 8.dp), color = Navy) }
-            Spacer(Modifier.weight(1f))
-            Button(onClick = {}, modifier = Modifier.fillMaxWidth().height(60.dp), shape = RoundedCornerShape(30.dp), colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD93636))) {
-                Text("☎  Emergency SOS", fontWeight = FontWeight.Bold)
-            }
-            Spacer(Modifier.height(10.dp))
-            Text("Cairn does not replace emergency services.", modifier = Modifier.fillMaxWidth().background(PaleBlue, RoundedCornerShape(12.dp)).padding(12.dp), color = Navy)
         }
     }
-}
 
-@Composable
-private fun HouseholdScreen(initialText: String, savedText: String, onBack: () -> Unit, onSave: (String) -> Unit) {
-    var draft by androidx.compose.runtime.remember(initialText) { mutableStateOf(initialText) }
-    Scaffold(containerColor = Color(0xFFF7F9FD)) { padding ->
-        Column(
-            Modifier.fillMaxSize().padding(padding).imePadding().verticalScroll(rememberScrollState()).padding(20.dp),
-            verticalArrangement = Arrangement.spacedBy(14.dp),
-        ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                Button(onClick = onBack) { Text("Back") }
-                Text("My Household", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold, color = Navy, modifier = Modifier.padding(top = 8.dp))
-            }
-            Text("Describe who you are preparing for. Review this information before saving.", color = Navy)
-            OutlinedTextField(
-                value = draft,
-                onValueChange = { draft = it },
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text("Household details") },
-                placeholder = { Text("2 adults, one baby, insulin, and a dog") },
-                minLines = 5,
-            )
-            if (savedText.isNotBlank()) {
-                Text("Saved on this device: $savedText", color = Blue)
-            }
-            Button(onClick = { onSave(draft) }, enabled = draft.isNotBlank(), modifier = Modifier.fillMaxWidth().height(52.dp)) {
-                Text("Save household")
-            }
-            Text("Your household details stay on this device.", color = Navy)
-        }
+    private fun destinationNamed(name: String): CairnDestination? = CairnDestination.entries.firstOrNull { it.name == name }
+
+    private fun navigateTo(destination: CairnDestination) {
+        val stack = navigation.value
+        val index = stack.indexOf(destination)
+        navigation.value = if (index >= 0) stack.take(index + 1) else stack + destination
+    }
+
+    private fun navigateBack() {
+        if (navigation.value.size > 1) navigation.value = navigation.value.dropLast(1)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putStringArrayList("navigation", ArrayList(navigation.value.map { it.name }))
+        super.onSaveInstanceState(outState)
     }
 }

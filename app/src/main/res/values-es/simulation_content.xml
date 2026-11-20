@@ -1,0 +1,74 @@
+<resources>
+    <string-array name="sim_flood_choices">
+        <item>Subir a un piso superior.</item>
+        <item>Bajar al sótano.</item>
+        <item>Esperar junto al río para ver el nivel del agua.</item>
+        <item>Cruzar despacio en coche.</item>
+        <item>Mantenerte fuera del agua y buscar otra ruta segura.</item>
+        <item>Cruzar a pie agarrándote de otra persona.</item>
+        <item>Esperar a que el agua llegue a la puerta.</item>
+        <item>Tomar un atajo conocido por una zona baja.</item>
+        <item>Seguir ya la ruta oficial de evacuación.</item>
+        <item>Llamar a emergencias o hacer señales. Evitar un ático cerrado.</item>
+        <item>Esconderse en el ático cerrado y apagar el teléfono.</item>
+        <item>Alejarse nadando por la calle.</item>
+        <item>Volver en cuanto la carretera parezca seca.</item>
+        <item>Seguir a un vecino que ya volvió.</item>
+        <item>Esperar la autorización oficial.</item>
+        <item>El agua del grifo si se ve clara.</item>
+        <item>El agua potable embotellada mientras sigues las indicaciones oficiales.</item>
+        <item>Derretir hielo hecho antes con agua del grifo.</item>
+    </string-array>
+    <string-array name="sim_flood_lessons">
+        <item>Subir te aleja del agua que va subiendo. Las zonas bajas y las orillas pueden inundarse rápido.</item>
+        <item>El agua puede ocultar daños en la carretera y corrientes fuertes. Puede arrastrarte a pie o en coche.</item>
+        <item>La ruta indicada evita peligros conocidos. Retrasarte o tomar un atajo sin verificar puede exponerte al agua.</item>
+        <item>Un ático cerrado puede atraparte. Llamar o hacer señales ayuda a los rescatistas a localizarte sin entrar en el agua.</item>
+        <item>Que baje el agua puede ocultar daños en las vías y riesgos eléctricos. Espera las instrucciones oficiales de regreso.</item>
+        <item>El agua clara puede seguir siendo peligrosa. Usa agua potable segura y sigue las indicaciones sobre el agua del grifo.</item>
+    </string-array>
+    <string-array name="sim_flood_situations">
+        <item>Llueve con fuerza y el agua sube afuera. La escalera a un piso superior está despejada. ¿Qué haces primero?</item>
+        <item>El agua cubre la carretera hacia un sitio más alto. No ves el pavimento. ¿Qué ruta tomas?</item>
+        <item>Las autoridades ordenan evacuar e indican una ruta sin agua. ¿Qué haces?</item>
+        <item>En otro barrio, un hogar avisa que el agua cortó todas las salidas seguras a nivel de calle. Está en un piso superior. ¿Qué consejo es más seguro?</item>
+        <item>El agua está bajando. Las autoridades aún no han autorizado el regreso a tu zona. ¿Qué haces?</item>
+        <item>Las autoridades dicen que el agua de la inundación pudo contaminar el grifo. Tienes agua potable en botellas cerradas. ¿Qué usas?</item>
+    </string-array>
+    <string-array name="sim_power_choices">
+        <item>Una vela sin vigilancia.</item>
+        <item>Una linterna a pilas.</item>
+        <item>Una lámpara de gas para acampar dentro de casa.</item>
+        <item>Abrirlas a menudo para comprobar qué sigue frío.</item>
+        <item>Dejarlas entreabiertas para ventilar.</item>
+        <item>Mantenerlas cerradas todo lo posible.</item>
+        <item>Al aire libre, a al menos 6,1 metros (20 pies) de puertas, ventanas y rejillas de ventilación.</item>
+        <item>En un garaje con la puerta abierta.</item>
+        <item>En la entrada, justo debajo de una ventana abierta.</item>
+        <item>Apartarlo con una escoba.</item>
+        <item>Mantenerte a distancia y avisar.</item>
+        <item>Pasarlo por encima donde el suelo parezca seco.</item>
+        <item>Llamar a emergencias y seguir el plan de respaldo previsto.</item>
+        <item>Esperar un aviso de la compañía eléctrica.</item>
+        <item>Intentar una reparación eléctrica improvisada.</item>
+        <item>Guardar lo que huela normal.</item>
+        <item>Probar un poco para ver si es seguro.</item>
+        <item>Desechar los alimentos perecederos del refrigerador.</item>
+    </string-array>
+    <string-array name="sim_power_lessons">
+        <item>Una luz a pilas permite ver sin llamas abiertas ni gases de combustión.</item>
+        <item>Las puertas cerradas conservan el frío más tiempo. Abrirlas repetidamente hace que suba la temperatura más rápido.</item>
+        <item>El escape contiene monóxido de carbono. Incluso un garaje abierto o una ventana cercana puede dejar que los gases se acumulen dentro.</item>
+        <item>Un cable caído puede seguir teniendo corriente. Mantente lejos y avisa desde un lugar seguro.</item>
+        <item>Pedir ayuda de emergencia y seguir el plan de respaldo atiende el peligro inmediato. Esperar retrasa la ayuda.</item>
+        <item>Tras cuatro horas sin electricidad, un refrigerador sin otra fuente de frío puede dejar de conservar los alimentos perecederos de forma segura. El olor y el sabor no descartan la contaminación.</item>
+    </string-array>
+    <string-array name="sim_power_situations">
+        <item>Las luces se apagan al atardecer. Necesitas ver para cruzar la habitación. ¿Qué usas?</item>
+        <item>Llevas una hora sin electricidad. ¿Qué haces con las puertas del refrigerador y del congelador?</item>
+        <item>Un vecino propone encender un generador portátil. ¿Dónde puede usarlo con seguridad?</item>
+        <item>Ves un cable eléctrico caído en la acera. ¿Qué haces?</item>
+        <item>Un equipo médico esencial perdió la energía y la persona que depende de él corre peligro inmediato. ¿Qué haces?</item>
+        <item>El refrigerador lleva cinco horas sin electricidad. No tienes un registro de temperatura ni refrigeración adicional. ¿Qué haces con los alimentos perecederos?</item>
+    </string-array>
+</resources>

@@ -1,0 +1,74 @@
+<resources>
+    <string-array name="sim_flood_choices">
+        <item>Move to the higher floor.</item>
+        <item>Go to the basement.</item>
+        <item>Wait by the river to check the level.</item>
+        <item>Drive through slowly.</item>
+        <item>Stay out of the water and find another safe route.</item>
+        <item>Walk through while holding onto someone.</item>
+        <item>Wait until the water reaches the door.</item>
+        <item>Take a familiar shortcut through a low area.</item>
+        <item>Follow the official evacuation route now.</item>
+        <item>Call emergency services or signal for help. Avoid a closed attic.</item>
+        <item>Hide in the closed attic and turn off the phone.</item>
+        <item>Swim down the street.</item>
+        <item>Return as soon as the road looks dry.</item>
+        <item>Follow a neighbor who has already gone back.</item>
+        <item>Wait for official clearance.</item>
+        <item>Tap water if it still looks clear.</item>
+        <item>The sealed drinking water, while following official advice.</item>
+        <item>Melt ice previously made with the tap water.</item>
+    </string-array>
+    <string-array name="sim_flood_lessons">
+        <item>Moving higher puts distance between you and rising water. Low areas and riverbanks can flood quickly.</item>
+        <item>Floodwater can hide washed-out pavement and strong currents. Walking or driving through it can sweep you away.</item>
+        <item>Leaving by the announced route avoids known hazards. A delay or unverified shortcut may expose you to rising water.</item>
+        <item>A closed attic can trap you. Calling or signaling helps rescuers find you without entering floodwater.</item>
+        <item>A drop in water level can hide damaged roads and electrical hazards. Wait for the official return instructions.</item>
+        <item>Clear water can still be unsafe. Use a safe water supply and follow the authorities’ directions about tap water.</item>
+    </string-array>
+    <string-array name="sim_flood_situations">
+        <item>Rain is heavy and water is rising outside. The stairs to a higher floor are clear. What is your first move?</item>
+        <item>Water covers the road toward higher ground. You cannot see the pavement. Which route do you take?</item>
+        <item>Authorities order evacuation and announce a route that is clear of floodwater. What do you do?</item>
+        <item>In another part of town, a household reports that rising water has cut off all safe ground-level exits. They are upstairs. What advice is safest?</item>
+        <item>The water is going down. Authorities still have not cleared your area for return. What do you do?</item>
+        <item>Officials say floodwater may have contaminated tap water. You have sealed drinking water. What do you use?</item>
+    </string-array>
+    <string-array name="sim_power_choices">
+        <item>An unattended candle.</item>
+        <item>A battery-powered flashlight.</item>
+        <item>A gas camping lantern indoors.</item>
+        <item>Open them often to check what is cold.</item>
+        <item>Leave them slightly open for ventilation.</item>
+        <item>Keep them closed as much as possible.</item>
+        <item>Outdoors, at least 20 feet (6.1 meters) from doors, windows, and vents.</item>
+        <item>In a garage with the garage door open.</item>
+        <item>On the doorstep, just outside an open window.</item>
+        <item>Move it aside with a broom.</item>
+        <item>Stay well away and report it.</item>
+        <item>Step over it where the pavement looks dry.</item>
+        <item>Call emergency services and follow the existing backup plan.</item>
+        <item>Wait for a notice from the power company.</item>
+        <item>Try an improvised electrical repair.</item>
+        <item>Keep any food that smells normal.</item>
+        <item>Taste a little to see whether it is safe.</item>
+        <item>Discard perishable food from the refrigerator.</item>
+    </string-array>
+    <string-array name="sim_power_lessons">
+        <item>A battery-powered light gives you visibility without an open flame or fuel fumes.</item>
+        <item>Closed doors keep cold air inside longer. Opening them repeatedly speeds up warming.</item>
+        <item>Generator exhaust contains carbon monoxide. An open garage or nearby window can still let dangerous fumes build up indoors.</item>
+        <item>A fallen line can still be live. Keep away and report it from a safe place.</item>
+        <item>Getting emergency help and following an established backup plan addresses the immediate danger. Waiting delays help.</item>
+        <item>After four hours without power, a refrigerator without another cold source may no longer keep perishables safe. Smell and taste cannot rule out contamination.</item>
+    </string-array>
+    <string-array name="sim_power_situations">
+        <item>The lights go out at dusk. You need to see your way across the room. What do you use?</item>
+        <item>Power has been out for an hour. What do you do with the refrigerator and freezer doors?</item>
+        <item>A neighbor suggests starting a portable generator. Where can it be used safely?</item>
+        <item>You see a fallen power line on the sidewalk. What do you do?</item>
+        <item>Essential medical equipment has lost power and the person relying on it is now in immediate danger. What do you do?</item>
+        <item>The refrigerator has been without power for five hours. You have no temperature record or additional cooling. What do you do with perishable food?</item>
+    </string-array>
+</resources>

@@ -12,6 +12,9 @@ firebaseBom = "35.2.0"
 firebaseAi = "18.2.0"
 firebaseAiOnDevice = "16.0.0-beta08"
 firebaseAppCheckDebug = "20.1.0"
+room = "2.8.5"
+dataStore = "1.1.7"
+ksp = "2.3.12"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,8 +35,13 @@ firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.r
 firebase-ai = { group = "com.google.firebase", name = "firebase-ai", version.ref = "firebaseAi" }
 firebase-ai-ondevice = { group = "com.google.firebase", name = "firebase-ai-ondevice", version.ref = "firebaseAiOnDevice" }
 firebase-appcheck-debug = { group = "com.google.firebase", name = "firebase-appcheck-debug", version.ref = "firebaseAppCheckDebug" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "dataStore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
